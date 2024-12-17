@@ -72,4 +72,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  legacy: {
+    collections: true,
+  },
 })

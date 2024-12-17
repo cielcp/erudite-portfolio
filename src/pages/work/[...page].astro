@@ -16,7 +16,7 @@ export async function getStaticPaths({
   const allPosts = await getCollection('blog', ({ data }) => !data.draft)
   return paginate(
     allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
-    { pageSize: SITE.POSTS_PER_PAGE },
+    { pageSize: SITE.POSTS_PER_PAGE }
   )
 }
 
@@ -28,7 +28,7 @@ const postsByYear = page.data.reduce(
     ;(acc[year] ??= []).push(post)
     return acc
   },
-  {},
+  {}
 )
 
 const years = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a))
